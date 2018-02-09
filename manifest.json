@@ -4,7 +4,7 @@
   "version": "0.1",
   "developer": {
     "name": "Carl Clegg",
-    "url": "https://cjc.im"
+    "url": "https://github.com/i-am-cjc/observatory-addon"
   },
 
   "description": "Adds an entry to the context menu to look at a site through the Mozilla Observatory.",
