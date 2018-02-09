@@ -1,0 +1,16 @@
+{
+  "manifest_version": 2,
+  "name": "Open in Observatory",
+  "version": "0.1",
+  "developer": {
+    "name": "Carl Clegg",
+    "url": "https://cjc.im"
+  },
+
+  "description": "Adds an entry to the context menu to look at a site through the Mozilla Observatory.",
+
+  "permissions": ["contextMenus", "tabs"],
+  "background": {
+    "scripts": ["observatory.js"]
+  }
+}
