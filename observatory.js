@@ -1,8 +1,14 @@
+// Check if we are on chrome
+if (chrome)
+    var browser = chrome;
+
+// Add the context menu
 browser.contextMenus.create({
     id: "open-in-observatory",
     title: "Open in Mozilla Observatory"
 });
 
+// Handle the click
 browser.contextMenus.onClicked.addListener(function(info, tab) {
     // Get current domain
     // open url
