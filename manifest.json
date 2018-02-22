@@ -7,6 +7,10 @@
     "url": "https://github.com/i-am-cjc/security-addon"
   },
 
+  "icons": {
+      "48": "icon.svg",
+      "96": "icon.svg"
+  },
   "description": "Adds an entry to the context menu to scan the current site with various online services.",
 
   "permissions": ["contextMenus", "tabs"],
