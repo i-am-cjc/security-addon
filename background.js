@@ -42,7 +42,13 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
             break;
     }
 
-    var domain = info.pageUrl.split("/")[2]
+    // check if we are using the page, or a link to scan.
+    var domain = info.pageUrl;
+    if (info.linkUrl)
+        domain = info.linkUrl;
+
+    domain = domain.split("/")[2];
+
     console.log(domain);
     browser.tabs.create({
         url: base + domain
