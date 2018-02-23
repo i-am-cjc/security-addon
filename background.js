@@ -21,6 +21,14 @@ browser.contextMenus.create({
     id: "open-in-security-headers",
     title: "SecurityHeaders"
 });
+browser.contextMenus.create({
+  id: "separator-2",
+  type: "separator"
+});
+browser.contextMenus.create({
+    id: "open-in-shodan",
+    title: "Shodan"
+});
 
 // Handle the click
 browser.contextMenus.onClicked.addListener(function(info, tab) {
@@ -38,6 +46,25 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
         case "open-in-security-headers":
             base = "https://securityheaders.io/?followRedirects=on&hide=on&q=";
             break;
+        case "open-in-shodan":
+            // get ip, then open it
+            var domain = info.pageUrl;
+            if (info.linkUrl)
+                domain = info.linkUrl;
+
+            domain = domain.split("/")[2];
+            
+            fetch("http://api.konvert.me/forward-dns/" + domain).then(function(response) {
+                return(response.text());
+            }).then(function(text) {
+                console.log(text);
+                var url = "https://www.shodan.io/host/" + text;
+
+                browser.tabs.create({
+                    url: url
+                });
+            });
+            return;
         default:
             break;
     }
@@ -49,7 +76,6 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
 
     domain = domain.split("/")[2];
 
-    console.log(domain);
     browser.tabs.create({
         url: base + domain
     })

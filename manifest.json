@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
-  "name": "Security Addon",
-  "version": "0.1",
+  "name": "Browser Security Tooklit",
+  "version": "0.2",
   "developer": {
     "name": "Carl Clegg",
     "url": "https://github.com/i-am-cjc/security-addon"
@@ -13,7 +13,12 @@
   },
   "description": "Adds an entry to the context menu to scan the current site with various online services.",
 
-  "permissions": ["contextMenus", "tabs"],
+  "permissions": [
+      "contextMenus", 
+      "tabs",
+      "*://api.konvert.me/*",
+      "webRequest"
+  ],
   "background": {
     "scripts": ["background.js"]
   }
