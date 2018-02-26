@@ -7,7 +7,10 @@ Currently implemented sites:
 * Mozilla Observatory
 * SSL Labs
 * SecurityHeaders.io
+* HSTS Preload
+* CryptCheck
 * Sucuri Sitecheck
+* Geoip Lookup
 * Shodan
 
 Please note the current shodan request will send the site to scan to a thirdparty to resolve the IP address.

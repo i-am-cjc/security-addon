@@ -44,7 +44,10 @@ function openIP(info, base) {
 add("open-in-obervatory", "Mozilla Observatory")
 add("open-in-ssllabs", "SSL Labs");
 add("open-in-security-headers", "SecurityHeaders");
+add("open-in-hstspreload", "HSTS Preload");
+add("open-in-cryptcheck", "CryptCheck");
 add("open-in-sucuri", "Sucuri Sitecheck");
+add("open-in-geoip", "Geoip Lookup");
 add("open-in-shodan", "Shodan");
 
 // Handle the click
@@ -65,8 +68,20 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
             base = "https://securityheaders.io/?followRedirects=on&hide=on&q=";
             openDomain(info, base);
             break;
+        case "open-in-hstspreload":
+            base = "https://hstspreload.org/?domain=";
+            openDomain(info, base);
+            break;
+        case "open-in-cryptcheck":
+            base = "https://tls.imirhil.fr/https/";
+            openDomain(info, base);
+            break;
         case "open-in-sucuri":
             base = "https://sitecheck.sucuri.net/results/";
+            openDomain(info, base);
+            break;
+        case "open-in-geoip":
+            base = "https://geoiplookup.io/?hostname=";
             openDomain(info, base);
             break;
         case "open-in-shodan":
