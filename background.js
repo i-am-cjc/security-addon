@@ -42,11 +42,9 @@ function openIP(info, base) {
 
 // Add the context menu
 add("open-in-obervatory", "Mozilla Observatory")
-add("separator-1", "separator");
 add("open-in-ssllabs", "SSL Labs");
 add("open-in-security-headers", "SecurityHeaders");
 add("open-in-sucuri", "Sucuri Sitecheck");
-add("separator-2", "separator");
 add("open-in-shodan", "Shodan");
 
 // Handle the click
