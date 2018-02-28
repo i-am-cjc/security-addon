@@ -1,7 +1,7 @@
 {
   "manifest_version": 2,
   "name": "Site Security Toolkit",
-  "version": "0.4",
+  "version": "0.5",
   "developer": {
     "name": "Carl Clegg",
     "url": "https://github.com/i-am-cjc/security-addon"

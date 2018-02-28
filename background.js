@@ -49,6 +49,7 @@ add("open-in-cryptcheck", "CryptCheck");
 add("open-in-sucuri", "Sucuri Sitecheck");
 add("open-in-geoip", "Geoip Lookup");
 add("open-in-shodan", "Shodan");
+add("open-in-censys", "Censys");
 
 // Handle the click
 browser.contextMenus.onClicked.addListener(function(info, tab) {
@@ -87,6 +88,11 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
         case "open-in-shodan":
             // get ip, then open it
             openIP(info, "https://www.shodan.io/host/");
+            break;
+        case "open-in-censys":
+            // get ip, then open it
+            openDomain(info, "https://censys.io/ipv4?q=");
+            break;
         default:
             break;
     }

@@ -11,6 +11,7 @@ Currently implemented sites:
 * CryptCheck
 * Sucuri Sitecheck
 * Geoip Lookup
-* Shodan
+* Shodan.io
+* Censys.io
 
 Please note the current shodan request will send the site to scan to a thirdparty to resolve the IP address.
