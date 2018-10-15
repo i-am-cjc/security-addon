@@ -41,7 +41,7 @@ function openIP(info, base) {
 }
 
 // Add the context menu
-add("open-in-obervatory", "Mozilla Observatory")
+add("open-in-observatory", "Mozilla Observatory")
 add("open-in-ssllabs", "SSL Labs");
 add("open-in-security-headers", "SecurityHeaders");
 add("open-in-hstspreload", "HSTS Preload");
@@ -91,7 +91,7 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
             break;
         case "open-in-censys":
             // get ip, then open it
-            openDomain(info, "https://censys.io/ipv4?q=");
+            openIP(info, "https://censys.io/ipv4?q=");
             break;
         default:
             break;
