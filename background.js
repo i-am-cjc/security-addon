@@ -2,12 +2,34 @@
 if (chrome)
     var browser = chrome;
 
-function add(id, title) {
+var urlLookup = [];
+
+function add(id, title, parentId, url) {
     browser.contextMenus.create({
         id: id,
-        title: title
+        title: title,
+	parentId: parentId
     });
+    
+    if (url)
+	    urlLookup[id] = url;
 };
+
+function addHost(id, title, url) {
+	add(id, title, "ip-options", url);
+};
+
+function addSite(id, title, url) {
+	add(id, title, "site-options", url);
+};
+
+function addSearch(id, title, url) {
+	add(id, title, "search-options", url);
+};
+
+add("site-options", "Site");
+add("ip-options", "Host");
+add("search-options", "Search on...");
 
 function openDomain(info, base) {
     var domain = info.pageUrl;
@@ -41,57 +63,47 @@ function openIP(info, base) {
 }
 
 // Add the context menu
-add("open-in-observatory", "Mozilla Observatory")
-add("open-in-ssllabs", "SSL Labs");
-add("open-in-security-headers", "SecurityHeaders");
-add("open-in-hstspreload", "HSTS Preload");
-add("open-in-cryptcheck", "CryptCheck");
-add("open-in-sucuri", "Sucuri Sitecheck");
-add("open-in-geoip", "Geoip Lookup");
-add("open-in-shodan", "Shodan");
-add("open-in-censys", "Censys");
+addSite("open-in-observatory", "Mozilla Observatory", "https://observatory.mozilla.org/analyze.html?host=");
+addSite("open-in-ssllabs", "SSL Labs", "https://www.ssllabs.com/ssltest/analyze?d=");
+addSite("open-in-security-headers", "SecurityHeaders", "https://securityheaders.io/?followRedirects=on&hide=on&q=");
+addSite("open-in-hstspreload", "HSTS Preload", "https://hstspreload.org/?domain=");
+addSite("open-in-cryptcheck", "CryptCheck", "https://tls.imirhil.fr/https/");
+addSite("open-in-sucuri", "Sucuri Sitecheck", "https://sitecheck.sucuri.net/results/");
+addSite("open-in-geoip", "Geoip Lookup", "https://geoiplookup.io/?hostname=");
+
+addHost("open-in-shodan", "Shodan", "https://www.shodan.io/host/");
+addHost("open-in-censys", "Censys", "https://censys.io/ipv4?q=");
+
+addSearch("open-in-urlscan", "URLScan.io", "https://urlscan.io/search/#");
+addSearch("open-in-urlhaus", "URLhaus", "https://urlhaus.abuse.ch/browse.php?search=");
+addSearch("open-in-vt", "VirusTotal", "https://www.virustotal.com/#/domain/");
 
 // Handle the click
 browser.contextMenus.onClicked.addListener(function(info, tab) {
     // Get current domain
     // open url
 
+    var base = urlLookup[info.menuItemId];
+    if (!base) return;
+
     switch(info.menuItemId) {
         case "open-in-ssllabs":
-            base = "https://www.ssllabs.com/ssltest/analyze?d=";
-            openDomain(info, base);
-            break;
         case "open-in-observatory":
-            base = "https://observatory.mozilla.org/analyze.html?host=";
-            openDomain(info, base);
-            break;
         case "open-in-security-headers":
-            base = "https://securityheaders.io/?followRedirects=on&hide=on&q=";
-            openDomain(info, base);
-            break;
         case "open-in-hstspreload":
-            base = "https://hstspreload.org/?domain=";
-            openDomain(info, base);
-            break;
         case "open-in-cryptcheck":
-            base = "https://tls.imirhil.fr/https/";
-            openDomain(info, base);
-            break;
         case "open-in-sucuri":
-            base = "https://sitecheck.sucuri.net/results/";
-            openDomain(info, base);
-            break;
         case "open-in-geoip":
-            base = "https://geoiplookup.io/?hostname=";
+        case "open-in-urlscan":
+        case "open-in-urlhaus":
+        case "open-in-vt":
             openDomain(info, base);
             break;
+
         case "open-in-shodan":
-            // get ip, then open it
-            openIP(info, "https://www.shodan.io/host/");
-            break;
         case "open-in-censys":
             // get ip, then open it
-            openIP(info, "https://censys.io/ipv4?q=");
+            openIP(info, base);
             break;
         default:
             break;
