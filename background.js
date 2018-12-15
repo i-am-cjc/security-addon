@@ -70,7 +70,7 @@ addSite("open-in-hstspreload", "HSTS Preload", "https://hstspreload.org/?domain=
 addSite("open-in-cryptcheck", "CryptCheck", "https://tls.imirhil.fr/https/");
 addSite("open-in-sucuri", "Sucuri Sitecheck", "https://sitecheck.sucuri.net/results/");
 addSite("open-in-geoip", "Geoip Lookup", "https://geoiplookup.io/?hostname=");
-addHost("open-in-xforce-u", "IBM X-Force", "https://exchange.xforce.ibmcloud.com/url/");
+addSite("open-in-xforce-u", "IBM X-Force", "https://exchange.xforce.ibmcloud.com/url/");
 
 addHost("open-in-shodan", "Shodan", "https://www.shodan.io/host/");
 addHost("open-in-censys", "Censys", "https://censys.io/ipv4?q=");
