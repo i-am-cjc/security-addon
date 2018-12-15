@@ -2,16 +2,27 @@
 
 Browser addon that will add an entry to the context menu to scan a site with various online services.
 
-Currently implemented sites:
+### Check the domain in:
 
 * Mozilla Observatory
 * SSL Labs
-* SecurityHeaders.io
+* SecurityHeaders
 * HSTS Preload
 * CryptCheck
 * Sucuri Sitecheck
 * Geoip Lookup
-* Shodan.io
-* Censys.io
+* IBM X-Force
 
-Please note the current shodan request will send the site to scan to a thirdparty to resolve the IP address.
+### Check the host IP on:
+
+* Shodan
+* Censys
+* IBM X-Force
+
+### Search for the domain on:
+
+* URLScan.io
+* URLhaus
+* VirusTotal
+
+Please note the host based options will send the site domain to a thirdparty to resolve the IP address.

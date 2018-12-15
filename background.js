@@ -70,9 +70,11 @@ addSite("open-in-hstspreload", "HSTS Preload", "https://hstspreload.org/?domain=
 addSite("open-in-cryptcheck", "CryptCheck", "https://tls.imirhil.fr/https/");
 addSite("open-in-sucuri", "Sucuri Sitecheck", "https://sitecheck.sucuri.net/results/");
 addSite("open-in-geoip", "Geoip Lookup", "https://geoiplookup.io/?hostname=");
+addHost("open-in-xforce-u", "IBM X-Force", "https://exchange.xforce.ibmcloud.com/url/");
 
 addHost("open-in-shodan", "Shodan", "https://www.shodan.io/host/");
 addHost("open-in-censys", "Censys", "https://censys.io/ipv4?q=");
+addHost("open-in-xforce", "IBM X-Force", "https://exchange.xforce.ibmcloud.com/ip/");
 
 addSearch("open-in-urlscan", "URLScan.io", "https://urlscan.io/search/#");
 addSearch("open-in-urlhaus", "URLhaus", "https://urlhaus.abuse.ch/browse.php?search=");
@@ -97,11 +99,13 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
         case "open-in-urlscan":
         case "open-in-urlhaus":
         case "open-in-vt":
+        case "open-in-xforce-u":
             openDomain(info, base);
             break;
 
         case "open-in-shodan":
         case "open-in-censys":
+        case "open-in-xforce":
             // get ip, then open it
             openIP(info, base);
             break;
