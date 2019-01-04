@@ -71,6 +71,7 @@ addSite("open-in-cryptcheck", "CryptCheck", "https://tls.imirhil.fr/https/");
 addSite("open-in-sucuri", "Sucuri Sitecheck", "https://sitecheck.sucuri.net/results/");
 addSite("open-in-geoip", "Geoip Lookup", "https://geoiplookup.io/?hostname=");
 addSite("open-in-xforce-u", "IBM X-Force", "https://exchange.xforce.ibmcloud.com/url/");
+addSite("open-in-maltiverse", "Maltiverse", "https://www.maltiverse.com/hostname/	");
 
 addHost("open-in-shodan", "Shodan", "https://www.shodan.io/host/");
 addHost("open-in-censys", "Censys", "https://censys.io/ipv4?q=");
@@ -100,6 +101,7 @@ browser.contextMenus.onClicked.addListener(function(info, tab) {
         case "open-in-urlhaus":
         case "open-in-vt":
         case "open-in-xforce-u":
+        case "open-in-maltiverse":
             openDomain(info, base);
             break;
 
